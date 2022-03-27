@@ -116,8 +116,8 @@ instance Yesod App where
                     , menuItemAccessCallback = True
                     }
                 , NavbarLeft $ MenuItem
-                    { menuItemLabel = "Profile"
-                    , menuItemRoute = ProfileR
+                    { menuItemLabel = "Dashboard"
+                    , menuItemRoute = DashboardR
                     , menuItemAccessCallback = isJust muser
                     }
                 , NavbarRight $ MenuItem
