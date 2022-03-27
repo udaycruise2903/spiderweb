@@ -11,6 +11,6 @@
 
 /comments CommentR POST
 
-/profile ProfileR GET
+/dashboard/profile ProfileR GET
 /activities ActivitiesR GET
 /dashboard DashboardR GET
