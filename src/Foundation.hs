@@ -167,12 +167,12 @@ instance Yesod App where
     isAuthorized FaviconR _ = return Authorized
     isAuthorized RobotsR _ = return Authorized
     isAuthorized (StaticR _) _ = return Authorized
+    isAuthorized ActivitiesR _ = return Authorized
 
     -- the profile route requires that the user is authenticated, so we
     -- delegate to that function
     isAuthorized ProfileR _ = isAuthenticated
 
-    isAuthorized ActivitiesR _ = return Authorized
     isAuthorized DashboardR _ = isAuthenticated
 
     -- This function creates static content files in the static folder
@@ -221,7 +221,8 @@ instance YesodBreadcrumbs App where
         -> Handler (Text, Maybe (Route App))
     breadcrumb HomeR = return ("Home", Nothing)
     breadcrumb (AuthR _) = return ("Login", Just HomeR)
-    breadcrumb ProfileR = return ("Profile", Just HomeR)    
+    breadcrumb ProfileR = return ("Profile", Just HomeR)
+    breadcrumb DashboardR = return ("Dashboard", Just HomeR)        
     breadcrumb  _ = return ("home", Nothing)
 
 -- How to run database actions.
